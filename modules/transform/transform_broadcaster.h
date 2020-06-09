@@ -19,31 +19,16 @@
 #include <memory>
 #include <vector>
 
-#include "cyber/cyber.h"
 #include "modules/common_msgs/transform_msgs/transform.pb.h"
+#include "cyber/cyber.h"
 
 namespace apollo {
 namespace transform {
 
-/** \brief This class provides an easy way to publish coordinate frame transform
- * information.
- * It will handle all the messaging and stuffing of messages.  And the function
- * prototypes lay out all the
- * necessary data needed for each message.  */
-
 class TransformBroadcaster {
  public:
-  /** \brief Constructor (needs a cyber::Node reference) */
   explicit TransformBroadcaster(const std::shared_ptr<cyber::Node>& node);
-
-  /** \brief Send a TransformStamped message
-   * The stamped data structure includes frame_id, and time, and parent_id
-   * already.  */
   void SendTransform(const TransformStamped& transform);
-
-  /** \brief Send a vector of TransformStamped messages
-   * The stamped data structure includes frame_id, and time, and parent_id
-   * already.  */
   void SendTransform(const std::vector<TransformStamped>& transforms);
 
  private:
