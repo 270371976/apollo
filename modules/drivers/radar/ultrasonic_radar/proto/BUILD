@@ -27,4 +27,3 @@ py_proto_library(
         "//modules/common_msgs/drivers_msgs:can_card_parameter_py_pb2",
     ],
 )
-

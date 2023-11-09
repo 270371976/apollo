@@ -23,6 +23,7 @@ py_proto_library(
         ":config_proto",
     ],
 )
+
 cc_proto_library(
     name = "gnss_status_cc_proto",
     deps = [
@@ -45,4 +46,3 @@ py_proto_library(
         "//modules/common_msgs/basic_msgs:header_py_pb2",
     ],
 )
-

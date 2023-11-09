@@ -16,8 +16,8 @@ proto_library(
     name = "conti_radar_conf_proto",
     srcs = ["conti_radar_conf.proto"],
     deps = [
-        "//modules/common_msgs/sensor_msgs:conti_radar_proto",
         "//modules/common_msgs/drivers_msgs:can_card_parameter_proto",
+        "//modules/common_msgs/sensor_msgs:conti_radar_proto",
     ],
 )
 
@@ -25,8 +25,7 @@ py_proto_library(
     name = "conti_radar_conf_py_pb2",
     deps = [
         ":conti_radar_conf_proto",
-        "//modules/common_msgs/sensor_msgs:conti_radar_py_pb2",
         "//modules/common_msgs/drivers_msgs:can_card_parameter_py_pb2",
+        "//modules/common_msgs/sensor_msgs:conti_radar_py_pb2",
     ],
 )
-

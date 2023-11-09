@@ -1,0 +1,29 @@
+Log file created at: 2023/11/09 00:17:49
+Running on machine: in-dev-docker
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+W1109 00:17:49.256865 56916 environment.h:33] Environment variable [CYBER_PATH] not set, fallback to 
+W1109 00:17:49.256891 56916 scheduler_factory.cc:63] Scheduler conf named /apollo/cyber/conf/mainboard_default.conf not found, use default.
+W1109 00:17:49.256907 56916 environment.h:33] Environment variable [CYBER_PATH] not set, fallback to 
+I1109 00:17:49.257122 56980 processor.cc:42] processor_tid: 56980
+I1109 00:17:49.257401 56981 processor.cc:42] processor_tid: 56981
+I1109 00:17:49.257678 56982 processor.cc:42] processor_tid: 56982
+I1109 00:17:49.257906 56983 processor.cc:42] processor_tid: 56983
+I1109 00:17:49.258086 56984 processor.cc:42] processor_tid: 56984
+I1109 00:17:49.258265 56985 processor.cc:42] processor_tid: 56985
+I1109 00:17:49.258553 56986 processor.cc:42] processor_tid: 56986
+I1109 00:17:49.258798 56988 processor.cc:42] processor_tid: 56988
+I1109 00:17:49.259028 56989 processor.cc:42] processor_tid: 56989
+I1109 00:17:49.259250 56990 processor.cc:42] processor_tid: 56990
+I1109 00:17:49.259377 56992 processor.cc:42] processor_tid: 56992
+I1109 00:17:49.259474 56993 processor.cc:42] processor_tid: 56993
+I1109 00:17:49.259573 56994 processor.cc:42] processor_tid: 56994
+I1109 00:17:49.259703 56995 processor.cc:42] processor_tid: 56995
+I1109 00:17:49.259856 56996 processor.cc:42] processor_tid: 56996
+I1109 00:17:49.260022 56997 processor.cc:42] processor_tid: 56997
+W1109 00:17:49.260048 56916 environment.h:33] Environment variable [sysmo_start] not set, fallback to 
+I1109 00:17:49.260059 56916 init.cc:113] Register exit handle succ.
+W1109 00:17:49.260066 56916 environment.h:33] Environment variable [CYBER_PATH] not set, fallback to 
+I1109 00:17:49.260504 56916 module_controller.cc:65] Start initialize dag: /apollo/modules/control/dag/control.dag
+W1109 00:17:49.260532 56916 environment.h:33] Environment variable [CYBER_PATH] not set, fallback to 
+I1109 00:17:49.260543 56916 class_loader.cc:37] Begin LoadLibrary: /apollo/bazel-bin/modules/control/libcontrol_component.so
+I1109 00:18:02.219520 56916 scheduler.cc:55] create croutine: control_/apollo/canbus/chassis

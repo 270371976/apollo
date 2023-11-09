@@ -19,12 +19,15 @@ proto_library(
         "//modules/common_msgs/basic_msgs:geometry_proto",
         "//modules/common_msgs/basic_msgs:vehicle_id_proto",
         "//modules/common_msgs/chassis_msgs:chassis_proto",
-    ]
+    ],
 )
 
 py_proto_library(
     name = "lincoln_py_pb2",
     deps = [
         ":lincoln_proto",
+        "//modules/common_msgs/basic_msgs:geometry_py_pb2",
+        "//modules/common_msgs/basic_msgs:vehicle_id_py_pb2",
+        "//modules/common_msgs/chassis_msgs:chassis_py_pb2",
     ],
 )

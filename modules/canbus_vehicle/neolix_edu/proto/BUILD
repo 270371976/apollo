@@ -24,5 +24,6 @@ py_proto_library(
     name = "neolix_edu_py_pb2",
     deps = [
         ":neolix_edu_proto",
+        "//modules/common_msgs/chassis_msgs:chassis_py_pb2",
     ],
 )

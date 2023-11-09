@@ -1,0 +1,11 @@
+Log file created at: 2023/11/09 00:19:00
+Running on machine: in-dev-docker
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1109 00:19:00.663328 58754 class_loader_utility.h:79] registerclass:ControlComponent,apollo::cyber::ComponentBase,/apollo/bazel-bin/modules/control/libcontrol_component.so
+I1109 00:19:02.645581 58754 controller_agent.cc:36] Only support MPC controller or Lat + Lon controllers as of now
+I1109 00:19:02.646252 58754 lat_controller.cc:216] Lateral control gain scheduler loaded
+I1109 00:19:02.646657 58754 controller_agent.cc:94] Controller <LQR-based Lateral Controller> init done!
+I1109 00:19:02.646678 58754 lon_controller.cc:144] Control calibration table loaded
+I1109 00:19:02.646682 58754 lon_controller.cc:145] Control calibration table size is 1297
+I1109 00:19:02.647418 58754 controller_agent.cc:94] Controller <LON_CONTROLLER> init done!
+F1109 00:19:02.649106 58754 control_component.cc:50] Check failed: chassis_reader_ == nullptr 

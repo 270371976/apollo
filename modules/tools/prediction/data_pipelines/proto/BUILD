@@ -6,24 +6,6 @@ load("//tools:python_rules.bzl", "py_proto_library")
 package(default_visibility = ["//visibility:public"])
 
 cc_proto_library(
-    name = "fnn_model_cc_proto",
-    deps = [
-        ":fnn_model_proto",
-    ],
-)
-
-proto_library(
-    name = "fnn_model_proto",
-    srcs = ["fnn_model.proto"],
-)
-
-py_proto_library(
-    name = "fnn_model_py_pb2",
-    deps = [
-        ":fnn_model_proto",
-    ],
-)
-cc_proto_library(
     name = "cruise_model_cc_proto",
     deps = [
         ":cruise_model_proto",
@@ -39,5 +21,24 @@ py_proto_library(
     name = "cruise_model_py_pb2",
     deps = [
         ":cruise_model_proto",
+    ],
+)
+
+cc_proto_library(
+    name = "fnn_model_cc_proto",
+    deps = [
+        ":fnn_model_proto",
+    ],
+)
+
+proto_library(
+    name = "fnn_model_proto",
+    srcs = ["fnn_model.proto"],
+)
+
+py_proto_library(
+    name = "fnn_model_py_pb2",
+    deps = [
+        ":fnn_model_proto",
     ],
 )

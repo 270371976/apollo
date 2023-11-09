@@ -2,7 +2,6 @@
 load("@rules_proto//proto:defs.bzl", "proto_library")
 load("@rules_cc//cc:defs.bzl", "cc_proto_library")
 load("//tools:python_rules.bzl", "py_proto_library")
-load("//tools/install:install.bzl", "install", "install_files")
 
 package(default_visibility = ["//visibility:public"])
 
@@ -29,12 +28,4 @@ py_proto_library(
         "//modules/common_msgs/chassis_msgs:chassis_py_pb2",
         "//modules/common_msgs/localization_msgs:pose_py_pb2",
     ],
-)
-
-install_files(
-    name = "py_pb_common_vehicle_state",
-    dest = "common/python/modules/common/vehicle_state/proto",
-    files = [
-        "vehicle_state_py_pb2",
-    ]
 )

@@ -2,103 +2,32 @@
 load("@rules_proto//proto:defs.bzl", "proto_library")
 load("@rules_cc//cc:defs.bzl", "cc_proto_library")
 load("//tools:python_rules.bzl", "py_proto_library")
-load("//tools/install:install.bzl", "install", "install_files")
 
 package(default_visibility = ["//visibility:public"])
 
-install_files(
-    name = "py_pb_dreamview",
-    dest = "dreamview/python/modules/dreamview/proto",
-    files = [
-        "camera_update_py_pb2",
-        "hmi_config_py_pb2",
-        "point_cloud_py_pb2",
-        "preprocess_table_py_pb2",
-        "data_collection_table_py_pb2",
-        "hmi_mode_py_pb2",
-        "simulation_world_py_pb2",
-        "plugin_config_py_pb2",
-        "dv_plugin_msg_py_pb2",
-        "scenario_py_pb2",
-    ]
-)
-
 cc_proto_library(
-    name = "camera_update_cc_proto",
+    name = "scenario_cc_proto",
     deps = [
-        ":camera_update_proto",
+        ":scenario_proto",
     ],
 )
 
 proto_library(
-    name = "camera_update_proto",
-    srcs = ["camera_update.proto"],
+    name = "scenario_proto",
+    srcs = ["scenario.proto"],
     deps = [
-          "//modules/common_msgs/perception_msgs:perception_obstacle_proto",
+        "//modules/common_msgs/simulation_msgs:scenario_proto",
     ],
 )
 
 py_proto_library(
-    name = "camera_update_py_pb2",
+    name = "scenario_py_pb2",
     deps = [
-        ":camera_update_proto",
-         "//modules/common_msgs/perception_msgs:perception_obstacle_py_pb2",
-    ],
-)
-cc_proto_library(
-    name = "hmi_config_cc_proto",
-    deps = [
-        ":hmi_config_proto",
+        ":scenario_proto",
+        "//modules/common_msgs/simulation_msgs:scenario_py_pb2",
     ],
 )
 
-proto_library(
-    name = "hmi_config_proto",
-    srcs = ["hmi_config.proto"],
-)
-
-py_proto_library(
-    name = "hmi_config_py_pb2",
-    deps = [
-        ":hmi_config_proto",
-    ],
-)
-cc_proto_library(
-    name = "point_cloud_cc_proto",
-    deps = [
-        ":point_cloud_proto",
-    ],
-)
-
-proto_library(
-    name = "point_cloud_proto",
-    srcs = ["point_cloud.proto"],
-)
-
-py_proto_library(
-    name = "point_cloud_py_pb2",
-    deps = [
-        ":point_cloud_proto",
-    ],
-)
-cc_proto_library(
-    name = "preprocess_table_cc_proto",
-    deps = [
-        ":preprocess_table_proto",
-    ],
-)
-
-proto_library(
-    name = "preprocess_table_proto",
-    srcs = ["preprocess_table.proto"],
-)
-
-py_proto_library(
-    name = "preprocess_table_py_pb2",
-    deps = [
-        ":preprocess_table_proto",
-    ],
-)
 cc_proto_library(
     name = "data_collection_table_cc_proto",
     deps = [
@@ -117,6 +46,7 @@ py_proto_library(
         ":data_collection_table_proto",
     ],
 )
+
 cc_proto_library(
     name = "hmi_mode_cc_proto",
     deps = [
@@ -135,38 +65,23 @@ py_proto_library(
         ":hmi_mode_proto",
     ],
 )
+
 cc_proto_library(
-    name = "simulation_world_cc_proto",
+    name = "preprocess_table_cc_proto",
     deps = [
-        ":simulation_world_proto",
+        ":preprocess_table_proto",
     ],
 )
 
 proto_library(
-    name = "simulation_world_proto",
-    srcs = ["simulation_world.proto"],
-    deps = [
-        "//modules/common_msgs/chassis_msgs:chassis_proto",
-        "//modules/common_msgs/monitor_msgs:monitor_log_proto",
-        "//modules/common_msgs/basic_msgs:pnc_point_proto",
-        "//modules/common_msgs/perception_msgs:perception_obstacle_proto",
-        "//modules/common_msgs/planning_msgs:planning_internal_proto",
-        "//modules/common_msgs/prediction_msgs:feature_proto",
-        "//modules/common_msgs/routing_msgs:routing_proto",
-    ],
+    name = "preprocess_table_proto",
+    srcs = ["preprocess_table.proto"],
 )
 
 py_proto_library(
-    name = "simulation_world_py_pb2",
+    name = "preprocess_table_py_pb2",
     deps = [
-        ":simulation_world_proto",
-        "//modules/common_msgs/chassis_msgs:chassis_py_pb2",
-        "//modules/common_msgs/monitor_msgs:monitor_log_py_pb2",
-        "//modules/common_msgs/basic_msgs:pnc_point_py_pb2",
-        "//modules/common_msgs/perception_msgs:perception_obstacle_py_pb2",
-        "//modules/common_msgs/planning_msgs:planning_internal_py_pb2",
-        "//modules/common_msgs/prediction_msgs:feature_py_pb2",
-        "//modules/common_msgs/routing_msgs:routing_py_pb2",
+        ":preprocess_table_proto",
     ],
 )
 
@@ -190,6 +105,44 @@ py_proto_library(
 )
 
 cc_proto_library(
+    name = "record_cc_proto",
+    deps = [
+        ":record_proto",
+    ],
+)
+
+proto_library(
+    name = "record_proto",
+    srcs = ["record.proto"],
+)
+
+py_proto_library(
+    name = "record_py_pb2",
+    deps = [
+        ":record_proto",
+    ],
+)
+
+cc_proto_library(
+    name = "hmi_config_cc_proto",
+    deps = [
+        ":hmi_config_proto",
+    ],
+)
+
+proto_library(
+    name = "hmi_config_proto",
+    srcs = ["hmi_config.proto"],
+)
+
+py_proto_library(
+    name = "hmi_config_py_pb2",
+    deps = [
+        ":hmi_config_proto",
+    ],
+)
+
+cc_proto_library(
     name = "dv_plugin_msg_cc_proto",
     deps = [
         ":dv_plugin_msg_proto",
@@ -208,38 +161,83 @@ py_proto_library(
     name = "dv_plugin_msg_py_pb2",
     deps = [
         ":dv_plugin_msg_proto",
+        "//modules/common_msgs/basic_msgs:header_py_pb2",
     ],
 )
 
 cc_proto_library(
-    name = "scenario_cc_proto",
+    name = "point_cloud_cc_proto",
     deps = [
-        ":scenario_proto",
+        ":point_cloud_proto",
     ],
 )
 
 proto_library(
-    name = "scenario_proto",
-    srcs = ["scenario.proto"],
+    name = "point_cloud_proto",
+    srcs = ["point_cloud.proto"],
+)
+
+py_proto_library(
+    name = "point_cloud_py_pb2",
     deps = [
-        "//modules/common_msgs/simulation_msgs:scenario_proto",
+        ":point_cloud_proto",
+    ],
+)
+
+cc_proto_library(
+    name = "camera_update_cc_proto",
+    deps = [
+        ":camera_update_proto",
+    ],
+)
+
+proto_library(
+    name = "camera_update_proto",
+    srcs = ["camera_update.proto"],
+    deps = [
+        "//modules/common_msgs/perception_msgs:perception_obstacle_proto",
     ],
 )
 
 py_proto_library(
-    name = "scenario_py_pb2",
+    name = "camera_update_py_pb2",
     deps = [
-        ":scenario_proto",
+        ":camera_update_proto",
+        "//modules/common_msgs/perception_msgs:perception_obstacle_py_pb2",
     ],
-)
-proto_library(
-    name = "record_proto",
-    srcs = ["record.proto"],
 )
 
 cc_proto_library(
-    name = "record_cc_proto",
+    name = "simulation_world_cc_proto",
     deps = [
-        ":record_proto",
+        ":simulation_world_proto",
+    ],
+)
+
+proto_library(
+    name = "simulation_world_proto",
+    srcs = ["simulation_world.proto"],
+    deps = [
+        "//modules/common_msgs/basic_msgs:pnc_point_proto",
+        "//modules/common_msgs/chassis_msgs:chassis_proto",
+        "//modules/common_msgs/monitor_msgs:monitor_log_proto",
+        "//modules/common_msgs/perception_msgs:perception_obstacle_proto",
+        "//modules/common_msgs/planning_msgs:planning_internal_proto",
+        "//modules/common_msgs/prediction_msgs:feature_proto",
+        "//modules/common_msgs/routing_msgs:routing_proto",
+    ],
+)
+
+py_proto_library(
+    name = "simulation_world_py_pb2",
+    deps = [
+        ":simulation_world_proto",
+        "//modules/common_msgs/basic_msgs:pnc_point_py_pb2",
+        "//modules/common_msgs/chassis_msgs:chassis_py_pb2",
+        "//modules/common_msgs/monitor_msgs:monitor_log_py_pb2",
+        "//modules/common_msgs/perception_msgs:perception_obstacle_py_pb2",
+        "//modules/common_msgs/planning_msgs:planning_internal_py_pb2",
+        "//modules/common_msgs/prediction_msgs:feature_py_pb2",
+        "//modules/common_msgs/routing_msgs:routing_py_pb2",
     ],
 )

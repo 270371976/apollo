@@ -6,6 +6,25 @@ load("//tools:python_rules.bzl", "py_proto_library")
 package(default_visibility = ["//visibility:public"])
 
 cc_proto_library(
+    name = "lane_detection_config_cc_proto",
+    deps = [
+        ":lane_detection_config_proto",
+    ],
+)
+
+proto_library(
+    name = "lane_detection_config_proto",
+    srcs = ["lane_detection_config.proto"],
+)
+
+py_proto_library(
+    name = "lane_detection_config_py_pb2",
+    deps = [
+        ":lane_detection_config_proto",
+    ],
+)
+
+cc_proto_library(
     name = "lidar_detection_config_cc_proto",
     deps = [
         ":lidar_detection_config_proto",
@@ -25,21 +44,21 @@ py_proto_library(
 )
 
 cc_proto_library(
-    name = "lane_detection_config_cc_proto",
+    name = "traffic_light_config_cc_proto",
     deps = [
-        ":lane_detection_config_proto",
+        ":traffic_light_config_proto",
     ],
 )
 
 proto_library(
-    name = "lane_detection_config_proto",
-    srcs = ["lane_detection_config.proto"],
+    name = "traffic_light_config_proto",
+    srcs = ["traffic_light_config.proto"],
 )
 
 py_proto_library(
-    name = "lane_detection_config_py_pb2",
+    name = "traffic_light_config_py_pb2",
     deps = [
-        ":lane_detection_config_proto",
+        ":traffic_light_config_proto",
     ],
 )
 
@@ -186,24 +205,5 @@ py_proto_library(
     name = "camera_detection_config_py_pb2",
     deps = [
         ":camera_detection_config_proto",
-    ],
-)
-
-cc_proto_library(
-    name = "traffic_light_config_cc_proto",
-    deps = [
-        ":traffic_light_config_proto",
-    ],
-)
-
-proto_library(
-    name = "traffic_light_config_proto",
-    srcs = ["traffic_light_config.proto"],
-)
-
-py_proto_library(
-    name = "traffic_light_config_py_pb2",
-    deps = [
-        ":traffic_light_config_proto",
     ],
 )

@@ -39,6 +39,7 @@ proto_library(
     name = "lslidar_proto",
     srcs = ["lslidar.proto"],
     deps = [
+        "//modules/common/proto:header_proto",
         "//modules/common_msgs/basic_msgs:header_proto",
     ],
 )
@@ -47,6 +48,7 @@ py_proto_library(
     name = "lslidar_py_pb2",
     deps = [
         ":lslidar_proto",
+        "//modules/common/proto:header_py_pb2",
         "//modules/common_msgs/basic_msgs:header_py_pb2",
     ],
 )

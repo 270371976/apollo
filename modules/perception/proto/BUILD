@@ -29,25 +29,6 @@ py_proto_library(
 )
 
 cc_proto_library(
-    name = "sensor_meta_schema_cc_proto",
-    deps = [
-        ":sensor_meta_schema_proto",
-    ],
-)
-
-proto_library(
-    name = "sensor_meta_schema_proto",
-    srcs = ["sensor_meta_schema.proto"],
-)
-
-py_proto_library(
-    name = "sensor_meta_schema_py_pb2",
-    deps = [
-        ":sensor_meta_schema_proto",
-    ],
-)
-
-cc_proto_library(
     name = "rt_cc_proto",
     deps = [
         ":rt_proto",
@@ -63,25 +44,6 @@ py_proto_library(
     name = "rt_py_pb2",
     deps = [
         ":rt_proto",
-    ],
-)
-
-cc_proto_library(
-    name = "perception_config_schema_cc_proto",
-    deps = [
-        ":perception_config_schema_proto",
-    ],
-)
-
-proto_library(
-    name = "perception_config_schema_proto",
-    srcs = ["perception_config_schema.proto"],
-)
-
-py_proto_library(
-    name = "perception_config_schema_py_pb2",
-    deps = [
-        ":perception_config_schema_proto",
     ],
 )
 
@@ -126,5 +88,43 @@ py_proto_library(
         ":perception_ultrasonic_proto",
         "//modules/common_msgs/basic_msgs:geometry_py_pb2",
         "//modules/common_msgs/basic_msgs:header_py_pb2",
+    ],
+)
+
+cc_proto_library(
+    name = "perception_config_schema_cc_proto",
+    deps = [
+        ":perception_config_schema_proto",
+    ],
+)
+
+proto_library(
+    name = "perception_config_schema_proto",
+    srcs = ["perception_config_schema.proto"],
+)
+
+py_proto_library(
+    name = "perception_config_schema_py_pb2",
+    deps = [
+        ":perception_config_schema_proto",
+    ],
+)
+
+cc_proto_library(
+    name = "sensor_meta_schema_cc_proto",
+    deps = [
+        ":sensor_meta_schema_proto",
+    ],
+)
+
+proto_library(
+    name = "sensor_meta_schema_proto",
+    srcs = ["sensor_meta_schema.proto"],
+)
+
+py_proto_library(
+    name = "sensor_meta_schema_py_pb2",
+    deps = [
+        ":sensor_meta_schema_proto",
     ],
 )

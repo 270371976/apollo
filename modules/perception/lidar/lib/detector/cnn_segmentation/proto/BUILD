@@ -23,6 +23,7 @@ py_proto_library(
         ":spp_engine_config_proto",
     ],
 )
+
 cc_proto_library(
     name = "cnnseg_param_cc_proto",
     deps = [

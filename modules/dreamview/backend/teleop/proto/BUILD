@@ -6,24 +6,24 @@ load("//tools:python_rules.bzl", "py_proto_library")
 package(default_visibility = ["//visibility:public"])
 
 cc_proto_library(
-    name = "daemon_cmd_cc_proto",
+    name = "daemon_rpt_cc_proto",
     deps = [
-        ":daemon_cmd_proto",
+        ":daemon_rpt_proto",
     ],
 )
 
 proto_library(
-    name = "daemon_cmd_proto",
-    srcs = ["daemon_cmd.proto"],
+    name = "daemon_rpt_proto",
+    srcs = ["daemon_rpt.proto"],
     deps = [
         "//modules/common_msgs/basic_msgs:header_proto",
     ],
 )
 
 py_proto_library(
-    name = "daemon_cmd_py_pb2",
+    name = "daemon_rpt_py_pb2",
     deps = [
-        ":daemon_cmd_proto",
+        ":daemon_rpt_proto",
         "//modules/common_msgs/basic_msgs:header_py_pb2",
     ],
 )
@@ -52,25 +52,24 @@ py_proto_library(
 )
 
 cc_proto_library(
-    name = "daemon_rpt_cc_proto",
+    name = "daemon_cmd_cc_proto",
     deps = [
-        ":daemon_rpt_proto",
+        ":daemon_cmd_proto",
     ],
 )
 
 proto_library(
-    name = "daemon_rpt_proto",
-    srcs = ["daemon_rpt.proto"],
+    name = "daemon_cmd_proto",
+    srcs = ["daemon_cmd.proto"],
     deps = [
         "//modules/common_msgs/basic_msgs:header_proto",
     ],
 )
 
 py_proto_library(
-    name = "daemon_rpt_py_pb2",
+    name = "daemon_cmd_py_pb2",
     deps = [
-        ":daemon_rpt_proto",
+        ":daemon_cmd_proto",
         "//modules/common_msgs/basic_msgs:header_py_pb2",
     ],
 )
-

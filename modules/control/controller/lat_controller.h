@@ -26,10 +26,10 @@
 #include <string>
 
 #include "Eigen/Core"
-#include "modules/common_msgs/config_msgs/vehicle_config.pb.h"
 #include "modules/common/filters/digital_filter.h"
 #include "modules/common/filters/digital_filter_coefficients.h"
 #include "modules/common/filters/mean_filter.h"
+#include "modules/common_msgs/config_msgs/vehicle_config.pb.h"
 #include "modules/control/common/interpolation_1d.h"
 #include "modules/control/common/leadlag_controller.h"
 #include "modules/control/common/mrac_controller.h"
@@ -122,8 +122,6 @@ class LatController : public Controller {
   void InitializeFilters(const ControlConf *control_conf);
   void LoadLatGainScheduler(const LatControllerConf &lat_controller_conf);
   void LogInitParameters();
-  void ProcessLogs(const SimpleLateralDebug *debug,
-                   const canbus::Chassis *chassis);
 
   void CloseLogFile();
 

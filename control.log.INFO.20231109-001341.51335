@@ -1,0 +1,4 @@
+Log file created at: 2023/11/09 00:13:41
+Running on machine: in-dev-docker
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I1109 00:13:41.850982 51335 class_loader_utility.h:79] registerclass:ControlComponent,apollo::cyber::ComponentBase,/apollo/bazel-bin/modules/control/libcontrol_component.so

@@ -2,44 +2,25 @@
 load("@rules_proto//proto:defs.bzl", "proto_library")
 load("@rules_cc//cc:defs.bzl", "cc_proto_library")
 load("//tools:python_rules.bzl", "py_proto_library")
-load("//tools/install:install.bzl", "install", "install_files")
 
 package(default_visibility = ["//visibility:public"])
 
-install_files(
-    name = "py_pb_localization",
-    dest = "localization/python/modules/localization/proto",
-    files = [
-        ":measure_py_pb2",
-        ":sins_pva_py_pb2",
-        ":gnss_pnt_result_py_pb2",
-        ":rtk_config_py_pb2",
-        ":localization_config_py_pb2"
-    ]
-)
-
 cc_proto_library(
-    name = "measure_cc_proto",
+    name = "localization_config_cc_proto",
     deps = [
-        ":measure_proto",
+        ":localization_config_proto",
     ],
 )
 
 proto_library(
-    name = "measure_proto",
-    srcs = ["measure.proto"],
-    deps = [
-        "//modules/common_msgs/basic_msgs:header_proto",
-        "//modules/common_msgs/basic_msgs:geometry_proto",
-    ],
+    name = "localization_config_proto",
+    srcs = ["localization_config.proto"],
 )
 
 py_proto_library(
-    name = "measure_py_pb2",
+    name = "localization_config_py_pb2",
     deps = [
-        ":measure_proto",
-        "//modules/common_msgs/basic_msgs:header_py_pb2",
-        "//modules/common_msgs/basic_msgs:geometry_py_pb2",
+        ":localization_config_proto",
     ],
 )
 
@@ -54,8 +35,8 @@ proto_library(
     name = "sins_pva_proto",
     srcs = ["sins_pva.proto"],
     deps = [
-        "//modules/common_msgs/basic_msgs:header_proto",
         "//modules/common_msgs/basic_msgs:geometry_proto",
+        "//modules/common_msgs/basic_msgs:header_proto",
     ],
 )
 
@@ -63,8 +44,27 @@ py_proto_library(
     name = "sins_pva_py_pb2",
     deps = [
         ":sins_pva_proto",
-        "//modules/common_msgs/basic_msgs:header_py_pb2",
         "//modules/common_msgs/basic_msgs:geometry_py_pb2",
+        "//modules/common_msgs/basic_msgs:header_py_pb2",
+    ],
+)
+
+cc_proto_library(
+    name = "rtk_config_cc_proto",
+    deps = [
+        ":rtk_config_proto",
+    ],
+)
+
+proto_library(
+    name = "rtk_config_proto",
+    srcs = ["rtk_config.proto"],
+)
+
+py_proto_library(
+    name = "rtk_config_py_pb2",
+    deps = [
+        ":rtk_config_proto",
     ],
 )
 
@@ -92,38 +92,26 @@ py_proto_library(
 )
 
 cc_proto_library(
-    name = "rtk_config_cc_proto",
+    name = "measure_cc_proto",
     deps = [
-        ":rtk_config_proto",
+        ":measure_proto",
     ],
 )
 
 proto_library(
-    name = "rtk_config_proto",
-    srcs = ["rtk_config.proto"],
-)
-
-py_proto_library(
-    name = "rtk_config_py_pb2",
+    name = "measure_proto",
+    srcs = ["measure.proto"],
     deps = [
-        ":rtk_config_proto",
-    ],
-)
-cc_proto_library(
-    name = "localization_config_cc_proto",
-    deps = [
-        ":localization_config_proto",
+        "//modules/common_msgs/basic_msgs:geometry_proto",
+        "//modules/common_msgs/basic_msgs:header_proto",
     ],
 )
 
-proto_library(
-    name = "localization_config_proto",
-    srcs = ["localization_config.proto"],
-)
-
 py_proto_library(
-    name = "localization_config_py_pb2",
+    name = "measure_py_pb2",
     deps = [
-        ":localization_config_proto",
+        ":measure_proto",
+        "//modules/common_msgs/basic_msgs:geometry_py_pb2",
+        "//modules/common_msgs/basic_msgs:header_py_pb2",
     ],
 )

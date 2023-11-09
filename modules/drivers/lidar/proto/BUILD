@@ -6,24 +6,6 @@ load("//tools:python_rules.bzl", "py_proto_library")
 package(default_visibility = ["//visibility:public"])
 
 cc_proto_library(
-    name = "robosense_config_cc_proto",
-    deps = [
-        ":robosense_config_proto",
-    ],
-)
-
-proto_library(
-    name = "robosense_config_proto",
-    srcs = ["robosense_config.proto"],
-)
-
-py_proto_library(
-    name = "robosense_config_py_pb2",
-    deps = [
-        ":robosense_config_proto",
-    ],
-)
-cc_proto_library(
     name = "hesai_cc_proto",
     deps = [
         ":hesai_proto",
@@ -42,29 +24,6 @@ py_proto_library(
     name = "hesai_py_pb2",
     deps = [
         ":hesai_proto",
-        "//modules/common_msgs/basic_msgs:header_py_pb2",
-    ],
-)
-
-cc_proto_library(
-    name = "robosense_cc_proto",
-    deps = [
-        ":robosense_proto",
-    ],
-)
-
-proto_library(
-    name = "robosense_proto",
-    srcs = ["robosense.proto"],
-    deps = [
-        "//modules/common_msgs/basic_msgs:header_proto",
-    ],
-)
-
-py_proto_library(
-    name = "robosense_py_pb2",
-    deps = [
-        ":robosense_proto",
         "//modules/common_msgs/basic_msgs:header_py_pb2",
     ],
 )
@@ -93,46 +52,47 @@ py_proto_library(
 )
 
 cc_proto_library(
-    name = "hesai_config_cc_proto",
+    name = "robosense_cc_proto",
     deps = [
-        ":hesai_config_proto",
+        ":robosense_proto",
     ],
 )
 
 proto_library(
-    name = "hesai_config_proto",
-    srcs = ["hesai_config.proto"],
+    name = "robosense_proto",
+    srcs = ["robosense.proto"],
     deps = [
-        ":hesai_proto",
+        "//modules/common_msgs/basic_msgs:header_proto",
     ],
 )
 
 py_proto_library(
-    name = "hesai_config_py_pb2",
+    name = "robosense_py_pb2",
     deps = [
-        ":hesai_config_proto",
-        ":hesai_py_pb2",
+        ":robosense_proto",
+        "//modules/common_msgs/basic_msgs:header_py_pb2",
     ],
 )
 
 cc_proto_library(
-    name = "lidar_parameter_cc_proto",
+    name = "robosense_config_cc_proto",
     deps = [
-        ":lidar_parameter_proto",
+        ":robosense_config_proto",
     ],
 )
 
 proto_library(
-    name = "lidar_parameter_proto",
-    srcs = ["lidar_parameter.proto"],
+    name = "robosense_config_proto",
+    srcs = ["robosense_config.proto"],
 )
 
 py_proto_library(
-    name = "lidar_parameter_py_pb2",
+    name = "robosense_config_py_pb2",
     deps = [
-        ":lidar_parameter_proto",
+        ":robosense_config_proto",
     ],
 )
+
 cc_proto_library(
     name = "velodyne_config_cc_proto",
     deps = [
@@ -157,6 +117,29 @@ py_proto_library(
 )
 
 cc_proto_library(
+    name = "hesai_config_cc_proto",
+    deps = [
+        ":hesai_config_proto",
+    ],
+)
+
+proto_library(
+    name = "hesai_config_proto",
+    srcs = ["hesai_config.proto"],
+    deps = [
+        ":hesai_proto",
+    ],
+)
+
+py_proto_library(
+    name = "hesai_config_py_pb2",
+    deps = [
+        ":hesai_config_proto",
+        ":hesai_py_pb2",
+    ],
+)
+
+cc_proto_library(
     name = "config_cc_proto",
     deps = [
         ":config_proto",
@@ -168,9 +151,9 @@ proto_library(
     srcs = ["config.proto"],
     deps = [
         ":hesai_config_proto",
-        ":velodyne_config_proto",
         ":lidar_parameter_proto",
         ":robosense_config_proto",
+        ":velodyne_config_proto",
     ],
 )
 
@@ -179,9 +162,27 @@ py_proto_library(
     deps = [
         ":config_proto",
         ":hesai_config_py_pb2",
-        ":velodyne_config_py_pb2",
         ":lidar_parameter_py_pb2",
         ":robosense_config_py_pb2",
+        ":velodyne_config_py_pb2",
     ],
 )
 
+cc_proto_library(
+    name = "lidar_parameter_cc_proto",
+    deps = [
+        ":lidar_parameter_proto",
+    ],
+)
+
+proto_library(
+    name = "lidar_parameter_proto",
+    srcs = ["lidar_parameter.proto"],
+)
+
+py_proto_library(
+    name = "lidar_parameter_py_pb2",
+    deps = [
+        ":lidar_parameter_proto",
+    ],
+)
