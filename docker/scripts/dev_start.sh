@@ -475,6 +475,11 @@ function main() {
   local group="${CUSTOM_GROUP-$(id -g -n)}"
   local gid="${CUSTOM_GID-$(id -g)}"
 
+  local start_img="${DEV_IMAGE}"
+  if [[ -n "${GEO_REGISTRY}" ]]; then
+    start_img="${GEO_REGISTRY}/${DEV_IMAGE}"
+  fi
+
   set -x
 
   ${DOCKER_RUN_CMD} -itd \
@@ -503,11 +508,11 @@ function main() {
     --shm-size "${SHM_SIZE}" \
     --pid=host \
     -v /dev/null:/dev/raw1394 \
-    "${DEV_IMAGE}" \
+    "${start_img}" \
     /bin/bash
 
   if [ $? -ne 0 ]; then
-    error "Failed to start docker container \"${DEV_CONTAINER}\" based on image: ${DEV_IMAGE}"
+    error "Failed to start docker container \"${DEV_CONTAINER}\" based on image: ${start_img}"
     exit 1
   fi
   set +x
