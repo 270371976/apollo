@@ -1,0 +1,12 @@
+module_config {
+  module_library : "modules/vtd_bridge/bridge_component/libbridge_component.so"
+  timer_components {
+    class_name : "VtdBridge"
+    config {
+      name: "bridge_component"
+      config_file_path:  "modules/vtd_bridge/bridge_component/conf/bridge_component.pb.txt"
+      flag_file_path:  "modules/vtd_bridge/bridge_component/conf/bridge_component.conf"
+      interval: 10
+    }
+  }
+}

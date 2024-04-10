@@ -1,0 +1,4 @@
+ts: 0.01
+remote_ip: "127.0.0.1"
+remote_send_port: 48193
+remote_receive_port: 48190

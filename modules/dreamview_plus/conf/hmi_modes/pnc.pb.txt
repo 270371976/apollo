@@ -20,4 +20,5 @@ cyber_modules {
 operations: Record
 operations: Scenario_Sim
 operations: Sim_Control
+operations: Auto_Drive
 default_operation: Record

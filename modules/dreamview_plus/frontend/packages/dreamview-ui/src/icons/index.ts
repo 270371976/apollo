@@ -8,7 +8,7 @@ export { default as IconIcAddPanel } from './components/IcAddPanel';
 
 export { default as IconIcAddPanelPitchOn } from './components/IcAddPanelPitchOn';
 
-export { default as IconIcAimingcircle } from './components/IcAimingcircle';
+export { default as IconIcAimingcircle } from './components/IcAimingCircle';
 
 export { default as IconIcAmplification } from './components/IcAmplification';
 

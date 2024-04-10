@@ -33,7 +33,7 @@ export default function useComponentDisplay(): UseComponentDisplay {
                 HMIModeOperation.WAYPOINT_FOLLOW,
             ].some((item) => item === hmi.currentOperation),
             // PnCmonitor scenario history
-            isScenarioHistoryShow: [HMIModeOperation.SIM_CONTROL, HMIModeOperation.SCENARIO].some(
+            isScenarioHistoryShow: [HMIModeOperation.SIM_CONTROL, HMIModeOperation.SCENARIO, HMIModeOperation.AUTO_DRIVE,].some(
                 (item) => item === hmi.currentOperation,
             ),
             isDynamicalModelsShow: [HMIModeOperation.SIM_CONTROL, HMIModeOperation.SCENARIO].includes(

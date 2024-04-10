@@ -1,0 +1,7 @@
+<cyber>
+  <module>
+    <name>bridge_component</name>
+    <dag_conf>modules/vtd_bridge/bridge_component/dag/bridge_component.dag</dag_conf>
+    <process_name>bridge_component</process_name>
+  </module>
+</cyber>
