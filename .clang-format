@@ -5,6 +5,10 @@ Language:                               Cpp
 Cpp11BracedListStyle:                   true
 Standard:                               Cpp11
 CommentPragmas:                         '^ NOLINT'
+
+# ColumnLimit: 250
+# SortIncludes: true
+
 # Mimic cpplint style
 IncludeCategories:
   # Note that the "main" header is priority 0

@@ -85,3 +85,5 @@ tools/FlameGraph
 modules/studio_connector
 
 #WORKSPACE
+
+modules/audio/data/

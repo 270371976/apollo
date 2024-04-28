@@ -69,8 +69,7 @@ class LatticePlanner : public PlannerWithReferenceLine {
       ReferenceLineInfo* reference_line_info) override;
 };
 
-CYBER_PLUGIN_MANAGER_REGISTER_PLUGIN(apollo::planning::LatticePlanner,
-                                     PlannerWithReferenceLine)
+CYBER_PLUGIN_MANAGER_REGISTER_PLUGIN(apollo::planning::LatticePlanner, Planner)
 
 }  // namespace planning
 }  // namespace apollo
